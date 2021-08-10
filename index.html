@@ -39,7 +39,7 @@
                             In order to solve this problem, in this paper, we propose a novel generative session-based recommendation framework.
                             Our key idea is to simultaneously train the recommendation model and generate user sequential behaviors to compensate existing training data.
                             In order to generate high quality samples, we consider two aspects:
-                            (1) \textit{the rationality as a sequence of user behaviors}, and (2) \textit{the informativeness for training the target model}.
+                            (1) <b>the rationality as a sequence of user behaviors</b>, and (2) <b>the informativeness for training the target model</b>.
                             To satisfy these requirements, we design a doubly adversarial network.
                             The first adversarial module aims to make the generated samples conform to the underlying patterns of the observed data.
                             The second adversarial module is targeted at widening the model experiences by the generated samples.
@@ -54,23 +54,25 @@
                         <h1>2. Illustration of Our Framework</h1>
                         <div class="content project_headline">
                         <div class="img" style="text-align:center">
-                            <img class="img_responsive" src="asset/intro.png" alt="Intro" style="margin:auto;max-width:80%">
+                            <img class="img_responsive" src="asset/intro.png" alt="Intro" style="margin:auto;max-width:100%">
                         </div>
                         <div class="text">
-                            <p><font size=3>Figure 1: An illustration of our framework for counterfactual data-augmented sequential recommendation and 
-							the sampler models.</font></p>
+                            <p><font size=3>(a) The general framework of our model. There are three components.
+                                Along the red dotted line is the rationality module, which aims to generate reasonable user behavior sequences.
+                                The blue solid line indicates the informativeness module, which tries to make the generated sequence informative. 
+                                The dotted purple square means the sequence in our model is generated in an "easy-to-hard" manner.</font></p>
+                            <p><font size=3>b) The architecture of the discriminator and agent.</font></p>
+                            <p><font size=3>(c) The training process of our framework.</font></p>
+                            <p><font size=3>The target sequential recommender model is firstly pre-trained based on the original dataset, and then the agent is optimized and leveraged to generate new samples. At last, the target model is retrained based on union between the generated and original datasets.</font></p>
+                            </font></p>
                         </div>
 						<div class="content">
 						<h3>Contributions</h3>
                             <p><ul class="download">
 							<font size=3>
-                            <li>We propose a novel framework to empower sequential recommendation models with counterfactual data.</li>
-							<li>We implement the above idea in three ways, developing a
-heuristic and two learning-based samplers to generate counterfactual sequences.</li>
-							<li>We theoretically analyze the noisy information in the counterfactual data and propose a simple but effective strategy to ensure
-the informativeness of the generated sequences..</li>
-                            <li>We conduct extensive experiments based on nine real-world
-datasets to verify our framework's effectiveness and generality.</li>
+                            <li>In this paper, we propose to improve sequential recommendation from the perspective of enriching the training data, which is orthogonal with existing model-oriented studies.</li>
+							<li>For generating reasonable and informative sequences, we design a <u><b>d</b></u>oubly <u><b>a</b></u>dversarial neural network, and further improve it with a <u><b>s</b></u>elf-<u><b>p</b></u>aced regularizer (called <b>DASP</b> for short).</li>
+							<li>We conduct extensive experiments based on real-world datasets to evaluate our model.</li>
                             </font>
                         </ul></p>
                         </div>
@@ -87,7 +89,7 @@ datasets to verify our framework's effectiveness and generality.</li>
                             <p><font size=3>Table 1: Overall comparison between the baselines and our models.</font></p>
                         </div>
                         <div class="img" style="text-align:center">
-                            <img class="img_responsive" src="asset/result.png" alt="result" style="margin:auto;max-width:90%">
+                            <img class="img_responsive" src="asset/DASP_result_1.png" alt="result" style="margin:auto;max-width:90%">
                         </div>
                         
                     </div>
@@ -121,7 +123,7 @@ datasets to verify our framework's effectiveness and generality.</li>
                             <p><font size=3>Table 4: Statistics of the datasets used in our experiments.</font></p>
                         </div>
                         <div class="img" style="text-align:center">
-                            <img class="img_responsive" src="asset/data.png" alt="result" style="margin:auto;max-width:90%">
+                            <img class="img_responsive" src="asset/dataset.png" alt="result" style="margin:auto;max-width:90%">
                         </div>
                         
                         </div>
