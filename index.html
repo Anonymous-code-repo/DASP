@@ -61,7 +61,7 @@
                                 Along the red dotted line is the rationality module, which aims to generate reasonable user behavior sequences.
                                 The blue solid line indicates the informativeness module, which tries to make the generated sequence informative. 
                                 The dotted purple square means the sequence in our model is generated in an "easy-to-hard" manner.</font></p>
-                            <p><font size=3>b) The architecture of the discriminator and agent.</font></p>
+                            <p><font size=3>(b) The architecture of the discriminator and agent.</font></p>
                             <p><font size=3>(c) The training process of our framework.</font></p>
                             <p><font size=3>The target sequential recommender model is firstly pre-trained based on the original dataset, and then the agent is optimized and leveraged to generate new samples. At last, the target model is retrained based on union between the generated and original datasets.</font></p>
                             </font></p>
@@ -99,31 +99,31 @@
                     <div class="text">
                         <h1>4. Code and Datasets</h1>
 
-						<h2> 4.1 Code <a href="https://drive.google.com/drive/folders/1QfHFYgKeVitJKOqkH7HWsIL4RjZZbAeI?usp=sharing">[link:Google Driver]</font></a></h2>
+						<h2> 4.1 Code <a href="https://drive.google.com/drive/folders/10nau2aZSa4d9b3T-_AxrnJ6hsTMrq2pL?usp=sharing">[link:Google Driver]</font></a></h2>
 						
 						<div class="content project_headline">
 						<div class="text">
                             <p><font size=3>Table 2: Structure of the code files [main program].</font></p>
                         </div>
 						<div class="img" style="text-align:center">
-                            <img class="img_responsive" src="asset/code1.png" alt="result" style="margin:auto;max-width:90%">
+                            <img class="img_responsive" src="asset/DASP_1.png" alt="result" style="margin:auto;max-width:90%">
                         </div>
 					
                         <div class="img" style="text-align:center">
 						<div class="text">
                             <p><font size=3>Table 3: Structure of the code files [utils].</font></p>
                         </div>
-                            <img class="img_responsive" src="asset/code2.png" alt="result" style="margin:auto;max-width:90%">
+                            <img class="img_responsive" src="asset/DASP_2.png" alt="result" style="margin:auto;max-width:90%">
                         </div>
                         
                         </div>
-                        <h2>4.2 Datasets <a href="https://drive.google.com/drive/folders/1yoH_YI4o5knC8hxlhJZmhorvl_NIrCiU?usp=sharing">[link:Google Driver]</a></font></h2>
+                        <h2>4.2 Datasets <a href="https://drive.google.com/drive/folders/1BuO7khMBjODkSvfuXgBD6bsCLzgJoN05?usp=sharing">[link:Google Driver]</a></font></h2>
 						<div class="content project_headline">
 						<div class="text">
                             <p><font size=3>Table 4: Statistics of the datasets used in our experiments.</font></p>
                         </div>
                         <div class="img" style="text-align:center">
-                            <img class="img_responsive" src="asset/dataset.png" alt="result" style="margin:auto;max-width:90%">
+                            <img class="img_responsive" src="asset/DASP_dataset.png" alt="result" style="margin:auto;max-width:90%">
                         </div>
                         
                         </div>
@@ -138,11 +138,11 @@
 						<p> <font size=4>5.2. Download the dataset, and put it into dataset/dataset name/ folder.</font></p>
 						<p> <font size=4>5.3. Pre-train the sampler and anchor model.</font></p>
 						<font size=3>
-                        <p>Before you can run our program, you should run run_test_example.py or run_hyper.py to train Sampler model and Anchor model firstly. we provided source code for three models NARM, STAMP and SASRec.</p>
+                        <p>Before you can run our program, you should run run_recbole.py to train Sequential recommendation model, Generator and Discriminator firstly. We provided source code for four Sequential recommendation models NARM, GRU4Rec, STAMP and SASRec.</p>
                         <div class="img" style="text-align:center">
-                            <img class="img_responsive" src="asset/run1.png" alt="result" style="margin:auto;max-width:90%">
+                            <img class="img_responsive" src="asset/DASP_run_1.png" alt="result" style="margin:auto;max-width:90%">
                         </div>
-                        <p>We also provide automatic parameter tuning tools. In hyper.test file,setting up the range of tuning parameter such as:</p>
+                        <!-- <p>We also provide automatic parameter tuning tools. In hyper.test file,setting up the range of tuning parameter such as:</p>
 						<div class="img" style="text-align:center">
                             <img class="img_responsive" src="asset/run2.png" alt="result" style="margin:auto;max-width:90%">
                         </div>
@@ -150,14 +150,17 @@
                         <div class="img" style="text-align:center">
                             <img class="img_responsive" src="asset/run3.png" alt="result" style="margin:auto;max-width:90%">
                         </div>
-                        <p>you should also save the trained model named Model name-dataset name.pth,in which the model name is one of the three model NARM, STAMP and SASRec,and put it in the folder savedTrainer/. we have trained some model as examples which could be used to train our method directly.</p>
-						<p> <font size=4>5.4. Run our framework</font></p>
-						<p>Run main.py file to train our model. You can configure some training parameters through the command line</p>
+                        <p>you should also save the trained model named Model name-dataset name.pth,in which the model name is one of the three model NARM, STAMP and SASRec,and put it in the folder savedTrainer/. we have trained some model as examples which could be used to train our method directly.</p> -->
+						<p> <font size=4>5.4. Train Generator using our DASP framwork</font></p>
+						<p>Run run_recbole.py file to train our Generator. You can configure some training parameters through the test_G.yaml.</p>
                         <div class="img" style="text-align:center">
-                            <img class="img_responsive" src="asset/run4.png" alt="result" style="margin:auto;max-width:90%">
+                            <img class="img_responsive" src="asset/DASP_run_2.png" alt="result" style="margin:auto;max-width:90%">
                         </div>
-						<p>where --learning denotes one of our methods 'Heuristic', 'Learning' and 'AD' representing heuristic, data-and model-oriented methods respectively. --sample denotes the number of sample,--kappa denotes the confidence parameter, --iter denotes the iteration number, --tao denotes the temperature parameter, --index denotes the intervention index from back to front, we remove the negative sign from the value 
-						for the facilitation of the experiment</p>
+                        <p> <font size=4>5.5. Train Sequential recommendation model based on the union dataset</font></p>
+						<p>Run run_recbole.py file to train Sequential recommendation model.</p>
+                        <div class="img" style="text-align:center">
+                            <img class="img_responsive" src="asset/DASP_run_3.png" alt="result" style="margin:auto;max-width:90%">
+                        </div>
 						</font>
                     </div>
                 </div>
